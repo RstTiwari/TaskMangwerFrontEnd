@@ -14,16 +14,19 @@ const Form = ({ currentId, setCurrentId }) => {
    tags: "",
    selectedFile: "",
  });
- const post = useSelector((state) =>
-   currentId ? state.posts.find((message) => message._id === currentId) : null
- );
- console.log("post" ,post)
+//  const post = useSelector((state) =>
+//    currentId ? state.posts.find((message) => message._id === currentId) : null
+//  );
+
+// const post = useSelector((state)=> state.posts)
+//  console.log("post" ,post)
+
  const dispatch = useDispatch();
  const classes = useStyles();
 
  useEffect(() => {
-   if (post) setPostData(post);
- }, [post]);
+   setPostData(postData);
+ }, [postData]);
 
  const clear = () => {
    setCurrentId(0);
@@ -39,13 +42,14 @@ const Form = ({ currentId, setCurrentId }) => {
  const handleSubmit = async (e) => {
    e.preventDefault();
 
-   if (currentId === 0) {
-     dispatch(createPost(postData));
-     clear();
-   } else {
-     dispatch(updatePost(currentId, postData));
-     clear();
-   }
+  //  if (currentId === 0) {
+  //    dispatch(createPost(postData));
+  //    clear();
+  //  } else {
+  //    dispatch(updatePost(currentId, postData));
+  //    clear();
+  //  }
+  dispatch(createPost(postData))
  };
      
   return (
@@ -61,7 +65,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Creator"
           fullWidth
-          value={postData.creator}
+          value={postData.creator || " "}
           onChange={(e) =>
             setPostData({ ...postData, creator: e.target.value })
           }
@@ -71,7 +75,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Title"
           fullWidth
-          value={postData.title}
+          value={postData.title || " "}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
         <TextField
@@ -79,7 +83,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Message"
           fullWidth
-          value={postData.message}
+          value={postData.message  || " "}
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
           }
@@ -89,7 +93,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Tags (coma separated)"
           fullWidth
-          value={postData.tags}
+          value={postData.tags || " "}
           onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
         <div className={classes.fileInput}>

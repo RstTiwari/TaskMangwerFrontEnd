@@ -16,7 +16,7 @@ function App() {
           NOTEPAD
         </Typography>
       </AppBar>
-      <Form currentId={currentId} setCurrentId={setCurrentId} />
+      <Form currentId={currentId} setCurrentId={setCurrentId}/>
 
       {/* <Grow>
         <Container>

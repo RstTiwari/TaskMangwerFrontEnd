@@ -7,7 +7,7 @@ import {
 } from "../constants/actionTypes";
 
 import * as api from "../api/index.js";
-
+import axios from "axios"
 export const getPosts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts();
@@ -20,7 +20,7 @@ export const getPosts = () => async (dispatch) => {
 
 export const createPost = (post) => async (dispatch) => {
   try {
-    const { data } = await api.createPost(post);
+        const { data } = await axios.post("http://localhost:5000/posts", post);
 
     dispatch({ type: CREATE, payload: data });
   } catch (error) {
