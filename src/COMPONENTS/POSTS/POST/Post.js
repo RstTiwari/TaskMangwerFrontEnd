@@ -12,12 +12,13 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
 import { useDispatch } from "react-redux";
+
 import { likePost, deletePost } from "../../../action/action";
-import useStyle from "./style";
+import useStyles from "./style";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
-  const classes = useStyle();
+  const classes = useStyles();
 
   return (
     <Card className={classes.card}>
