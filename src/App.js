@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from "react";
-import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import {BrowserRouter as Router, Route ,Routes ,Link} from "react-router-dom"
+import { Container, AppBar, Typography, Grow, Grid,Icon } from "@material-ui/core";
 
 import Posts from "./COMPONENTS/POSTS/Posts";
 import Form  from  './COMPONENTS/Form/Form.js';
@@ -13,33 +14,43 @@ function App() {
 
 
   return (
-    <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">
-          NOTEPAD
-        </Typography>
-      </AppBar>
-      <Form currentId={currentId} setCurrentId={setCurrentId} />
-      <Posts setCurrentId={setCurrentId} />
+    <div className="App">
+      <Router>
+        <Container maxWidth="lg">
+          <AppBar className={classes.appBar} position="static" color="inherit">
+            <Link to ="/newTask">
+              <Typography
+                className={classes.newTask}
+                variant="h6"
+                align="center"
+              >
+                NewTask
+              </Typography>
+            </Link>
 
-      {/* <Grow>
-        <Container>
-          <Grid
-            container
-            justify="space-between"
-            alignItems="stretch"
-            spacing={3}
-          >
-            <Grid item xs={12} sm={7}>
-              <Post setCurrentId={setCurrentId} />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Form currentId={currentId} setCurrentId={setCurrentId} />
-            </Grid>
-          </Grid>
+            <Typography className={classes.heading} variant="h2" align="center">
+              TASK MANAGER
+            </Typography>
+          </AppBar>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Posts setCurrentId={setCurrentId} />
+                </>
+              }
+            />
+            <Route
+              path="/newTask"
+              element={
+                <Form currentId={currentId} setCurrentId={setCurrentId} />
+              }
+            />
+          </Routes>
         </Container>
-      </Grow> */}
-    </Container>
+      </Router>
+    </div>
   );
 }
 

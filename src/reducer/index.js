@@ -1,10 +1,6 @@
 import { combineReducers } from "redux";
-import posts from "../reducer/taskReducer";
+import posts from "./posts";
 
-
-
-const reducer = combineReducers({
-  posts,
-});
+const reducer = combineReducers({ posts});
 
 export default reducer

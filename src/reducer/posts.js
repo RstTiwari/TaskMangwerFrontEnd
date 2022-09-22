@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import {
   FETCH_ALL,
   CREATE,
@@ -6,7 +7,7 @@ import {
   LIKE,
 } from "../constants/actionTypes";
 
-const post =  (posts = [], action) => {
+export default (posts = [], action) => {
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;
@@ -25,6 +26,4 @@ const post =  (posts = [], action) => {
     default:
       return posts;
   }
-};
-
-export default post
+}
