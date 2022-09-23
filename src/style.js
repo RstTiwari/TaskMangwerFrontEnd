@@ -6,11 +6,18 @@ export default makeStyles(() => ({
     margin: "30px 0",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
   },
+  newTask: {
+    color: "rgba(0,183,255, 1)",
+    display: "felx",
+    flex: 10,
+  },
+
   heading: {
     color: "rgba(0,183,255, 1)",
+    display: "felx",
+    flex: 70,
   },
   image: {
     marginLeft: "15px",
