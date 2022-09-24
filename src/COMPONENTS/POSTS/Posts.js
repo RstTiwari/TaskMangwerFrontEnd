@@ -15,7 +15,6 @@ const Posts = ({ setCurrentId }) => {
   });
 
   const posts = useSelector((state) => state.posts);
-  console.log("posts", posts);
   const classes = useStyles();
 
   return !posts.length ? (

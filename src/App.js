@@ -5,6 +5,7 @@ import { Container, AppBar, Typography, Grow, Grid,Icon } from "@material-ui/cor
 
 import Posts from "./COMPONENTS/POSTS/Posts";
 import Form  from  './COMPONENTS/Form/Form.js';
+import Signup from "./COMPONENTS/signup/Signup"
 import useStyle from "./style";
 
 
@@ -18,7 +19,7 @@ function App() {
       <Router>
         <Container maxWidth="lg">
           <AppBar className={classes.appBar} position="static" color="inherit">
-            <Link to ="/newTask">
+            <Link to="/newTask">
               <Typography
                 className={classes.newTask}
                 variant="h6"
@@ -31,6 +32,15 @@ function App() {
             <Typography className={classes.heading} variant="h2" align="center">
               TASK MANAGER
             </Typography>
+            <Link to="/signup">
+              <Typography
+                className={classes.newTask}
+                variant="h6"
+                align="center"
+              >
+                SignUp
+              </Typography>
+            </Link>
           </AppBar>
           <Routes>
             <Route
@@ -45,6 +55,12 @@ function App() {
               path="/newTask"
               element={
                 <Form currentId={currentId} setCurrentId={setCurrentId} />
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <Signup />
               }
             />
           </Routes>
