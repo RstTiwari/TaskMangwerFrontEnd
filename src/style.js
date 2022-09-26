@@ -13,6 +13,9 @@ export default makeStyles(() => ({
     display: "felx",
     flex: 10,
   },
+  text:{
+    margin:"10px"
+  },
 
   heading: {
     color: "rgba(0,183,255, 1)",

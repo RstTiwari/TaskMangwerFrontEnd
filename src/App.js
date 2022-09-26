@@ -7,6 +7,7 @@ import Posts from "./COMPONENTS/POSTS/Posts";
 import Form  from  './COMPONENTS/Form/Form.js';
 import Signup from "./COMPONENTS/signup/Signup"
 import useStyle from "./style";
+import Login from './COMPONENTS/signup/Login';
 
 
 function App() {
@@ -32,13 +33,13 @@ function App() {
             <Typography className={classes.heading} variant="h2" align="center">
               TASK MANAGER
             </Typography>
-            <Link to="/signup">
+            <Link to="/signin">
               <Typography
                 className={classes.newTask}
                 variant="h6"
                 align="center"
               >
-                SignUp
+                Login
               </Typography>
             </Link>
           </AppBar>
@@ -57,12 +58,8 @@ function App() {
                 <Form currentId={currentId} setCurrentId={setCurrentId} />
               }
             />
-            <Route
-              path="/signup"
-              element={
-                <Signup />
-              }
-            />
+            <Route path="/signin" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </Container>
       </Router>
